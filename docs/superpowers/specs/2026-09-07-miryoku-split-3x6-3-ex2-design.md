@@ -112,8 +112,10 @@ defaults to QWERTY); the two left inner extras stay inert.
    plumbing (workflow option vs `custom_rules.mk`) follows the existing Build
    Example patterns.
 3. **Build workflow** — one Build-Example copy in the fork targeting
-   `crkbd/rev4_0/standard` with the `merge` option, giving one-click reproducible
-   releases.
+   `crkbd/rev4_0/standard`, giving one-click reproducible builds. No `merge`
+   option: the branch's QMK is deliberately pinned at `6b38dc17cd^` (2025-07,
+   last ref before the keycode removals) — merging current QMK master would
+   reintroduce API drift.
 
 ## 7. Verification & acceptance
 

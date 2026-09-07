@@ -274,8 +274,9 @@ jobs:
     uses: ./.github/workflows/main.yml
     with:
       keyboard: '["crkbd/rev4_0/standard"]'
-      merge: '["qmk/qmk_firmware/master"]'
 ```
+
+(No `merge` option — Ruling 8: the branch already contains QMK pinned at `6b38dc17cd^` (2025-07, last pre-keycode-rework ref); merging current `qmk/qmk_firmware/master` would reintroduce the API drift and userspace purge that broke earlier builds.)
 
 - [ ] **Step 2: Commit and push** (IS `[miryoku-github]` — GitHub-specific, canonical per upstream docs)
 
