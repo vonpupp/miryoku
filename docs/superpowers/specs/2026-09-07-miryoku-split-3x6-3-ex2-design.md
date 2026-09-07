@@ -31,12 +31,16 @@ Reference material:
 
 Run **stock Miryoku (QMK implementation), unmodified**, on this keyboard — a migration
 as faithful as possible — using Miryoku's own build method (fork + GitHub Actions
-workflows), with the 4 extra keys deliberately inert.
+workflows). Of the 4 extra keys, the two right inner ones provide instant
+default-layer switching (`DF(U_EXTRA)` → QWERTY on home, `DF(U_BASE)` → Colemak on
+top — the user's documented daily-driver aid; stock needs no options since U_EXTRA
+defaults to QWERTY); the two left inner extras stay inert.
 
 ## 3. Non-goals (deferred to phase 2+)
 
 - Any layer customization (alphas are stock Colemak Mod-DH, etc.).
-- Assigning functions to the 4 extra keys.
+- Extra-key functions beyond the two `DF` switches (e.g. home-row tap-dance
+  mods, the clone's clipboard keys) — still phase 2.
 - Editing `miryoku_babel` org sources.
 - Vial/VIA support (flashing Miryoku firmware replaces the current Vial firmware;
   live remapping returns only if VIA is added in a later phase).
@@ -90,16 +94,17 @@ workflows), with the 4 extra keys deliberately inert.
      `crkbd/rev4_0/info.json`; `XXX` = `KC_NO`):
 
      ```
-     top    (14): XXX, K00 K01 K02 K03 K04, XXX   |  XXX, K05 K06 K07 K08 K09, XXX
-     home   (14): XXX, K10 K11 K12 K13 K14, XXX   |  XXX, K15 K16 K17 K18 K19, XXX
+     top    (14): XXX, K00 K01 K02 K03 K04, XXX   |  DF(U_BASE),   K05 K06 K07 K08 K09, XXX
+     home   (14): XXX, K10 K11 K12 K13 K14, XXX   |  DF(U_EXTRA),  K15 K16 K17 K18 K19, XXX
      bottom (12): XXX, K20 K21 K22 K23 K24        |  K25 K26 K27 K28 K29, XXX
      thumbs ( 6):        K32 K33 K34              |  K35 K36 K37
      ```
 
      Per half, columns run outer→inner; the innermost column (x6/x8) carries the two
-     `XXX` extras (top, home); the outermost column is `XXX` exactly as in the stock
-     `split_3x6_3` shim. Thumbs: left `K32 K33 K34` = (x4,3.7) (x5,3.7) (x6,3.2);
-     right `K35 K36 K37` = (x8,3.2) (x9,3.7) (x10,3.7).
+     extras (top, home): left extras `XXX`, right extras `DF(U_BASE)` (top, → Colemak)
+     and `DF(U_EXTRA)` (home, → QWERTY). The outermost column is `XXX` exactly as in
+     the stock `split_3x6_3` shim. Thumbs: left `K32 K33 K34` = (x4,3.7) (x5,3.7)
+     (x6,3.2); right `K35 K36 K37` = (x8,3.2) (x9,3.7) (x10,3.7).
 2. **Registration commit** — add `"split_3x6_3_ex2"` to `community_layouts` in the
    crkbd rev4_0 `info.json` that declares the layouts (verify during implementation
    whether the `standard/` subdir owns its own `info.json`). The ex2 layout is then
@@ -120,7 +125,9 @@ workflows), with the 4 extra keys deliberately inert.
     Mod-DH alphas; thumb layer-taps (Space/Tab/Esc left, Enter/Bspc/Del right);
     Nav/Mouse/Media via left thumbs; Num/Sym/Fun via right thumbs; Auto Shift;
     Additional Features (bootloader, base-layer switching) on double-tap holds.
-  - The 4 extra keys produce nothing.
+  - Extra keys: left inner top/home produce nothing; right inner **home** switches
+    the default layer to QWERTY, right inner **top** switches back to Colemak;
+    the choice persists across reboot/unplug.
   - Both halves communicate (keys on the secondary half register).
   - OLED/RGB behave per crkbd defaults.
 - The user types on it for real work before phase 2 begins.

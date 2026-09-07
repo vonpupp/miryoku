@@ -171,7 +171,7 @@ If keys on the secondary half don't register, reseat TRRS and reflash both halve
 // This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 2 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
 ```
 
-- [ ] **Step 2: Create `config.h`** (the subset mapping; `XXX` = unused. Miryoku's 5 alpha columns land on the inner 5 columns per hand, exactly as the stock `split_3x6_3` shim; the 4 inner extras and both outer columns are `XXX`)
+- [ ] **Step 2: Create `config.h`** (the subset mapping; `XXX` = unused. Miryoku's 5 alpha columns land on the inner 5 columns per hand, exactly as the stock `split_3x6_3` shim; outer columns and the two LEFT inner extras are `XXX`; the two RIGHT inner extras are default-layer switches per Ruling 9: top = `DF(U_BASE)` → Colemak, home = `DF(U_EXTRA)` → QWERTY — keycodes already exist in the userspace layer enum and U_EXTRA defaults to QWERTY, so no build options are needed)
 
 ```c
 // Copyright 2022 Manna Harbour
@@ -190,8 +190,8 @@ If keys on the secondary half don't register, reseat TRRS and reflash both halve
       N30,  N31,  K32,  K33,  K34,         K35,  K36,  K37,  N38,  N39 \
 ) \
 LAYOUT_split_3x6_3_ex2( \
-XXX,  K00,  K01,  K02,  K03,  K04,  XXX,   XXX,  K05,  K06,  K07,  K08,  K09,  XXX, \
-XXX,  K10,  K11,  K12,  K13,  K14,  XXX,   XXX,  K15,  K16,  K17,  K18,  K19,  XXX, \
+XXX,  K00,  K01,  K02,  K03,  K04,  XXX,   DF(U_BASE),  K05,  K06,  K07,  K08,  K09,  XXX, \
+XXX,  K10,  K11,  K12,  K13,  K14,  XXX,   DF(U_EXTRA), K15,  K16,  K17,  K18,  K19,  XXX, \
 XXX,  K20,  K21,  K22,  K23,  K24,         K25,  K26,  K27,  K28,  K29,  XXX, \
                   K32,  K33,  K34,         K35,  K36,  K37 \
 )
@@ -322,7 +322,7 @@ Expected: `crkbd_rev4_0_standard_manna-harbour_miryoku.uf2` present.
   - Left thumbs: Space / Tab / Esc (primary/secondary/tertiary as held layers Nav/Mouse/Media). Right thumbs: Enter / Bspc / Del (layers Num/Sym/Fun). Opposite-hand keys activate while holding.
   - Auto-Shift works on Num/Sym layers (hold a number → shifted symbol).
   - Additional Features: hold a thumb, double-tap top-row pinkie key → bootloader (board re-enumerates as `RPI-RP2`); double-tap top-row index = Base, middle = Extra (QWERTY).
-  - The 4 extra inner keys and the 2 outer columns produce nothing.
+  - Extra keys: left inner top/home and both outer columns produce nothing; right inner **home** switches default layer to QWERTY, right inner **top** switches back to Colemak, and the choice persists across unplug/reboot.
   - Both halves register; OLED/RGB behave per crkbd defaults.
 
 - [ ] **Step 3: Real-work session** — the user types on it for at least one working session before phase 2 begins.
