@@ -20,6 +20,10 @@ Everything lives on the branch =miryoku-LAYOUT_split_3x6_3_ex2= in each repo
 - Device docs: [[file:docs/device.org][device]] · [[file:docs/flashing.org][flashing]] ·
   [[file:docs/printable-keymap.org][printable keymap]]
 
+** Current keymap (Gallium base)
+
+[[file:docs/keymap.svg]]
+
 
 ** Documentation
 

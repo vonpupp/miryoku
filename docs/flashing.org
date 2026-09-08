@@ -15,9 +15,9 @@ Get the firmware =.bin= onto the machine the keyboard is plugged into (the
 build artifact from the fork's Actions run):
 
 #+begin_src sh
-rsync -av --inplace oci2:repos/miryoku/tmp/firmware-final/xtips_v4s_103c_manna-harbour_miryoku.bin .
-sha256sum xtips_v4s_103c_manna-harbour_miryoku.bin
-# expect: e6f9843cfa12d7c7aad26ac8e58cc3cfd64f016d770d352784b95c05ae2c7667
+rsync -av --inplace oci2:repos/miryoku/tmp/firmware-final/xtips_v4s_103c_vonpupp_miryoku.bin .
+sha256sum xtips_v4s_103c_vonpupp_miryoku.bin
+# expect: 6275d4d9486dfc377167cb962a9d30af39653b54371d830acb0e955eda30208c
 #+end_src
 
 * Flash one half at a time
@@ -35,7 +35,7 @@ Keep them disconnected from each other (no TRRS) while flashing.
 2. *Flash* (alt 2 = flash @ =0x8002000= — see gotchas below):
 
    #+begin_src sh
-   sudo dfu-util -a 2 -d 1eaf:0003 -D ./xtips_v4s_103c_manna-harbour_miryoku.bin
+   sudo dfu-util -a 2 -d 1eaf:0003 -D ./xtips_v4s_103c_vonpupp_miryoku.bin
    #+end_src
 
    Expected end state: =Download done=, =dfuMANIFEST-WAIT-RESET=,
