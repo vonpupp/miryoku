@@ -64,4 +64,7 @@ layers:
   - [BTN3, BTN1, BTN2, BTN2, BTN1, BTN3]
 draw_config:
   svg_extra_style: |-
-    rect.key.held, rect.combo.held { fill: #ffb3ba; stroke: #d96a75; stroke-width: 1.5; }
+    svg.keymap { fill: #f0f6fc; background-color: #161b22; }
+    rect.key { fill: #3d444d; stroke: #6e7681; }
+    rect.key.held, rect.combo.held { fill: #ff8fa3; stroke: #d9455f; stroke-width: 1.5; }
+    text.label { stroke: #161b22; }
