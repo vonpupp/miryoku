@@ -1,0 +1,83 @@
+#+TITLE: Flashing the X.Tips V4s (STM32, DFU)
+#+AUTHOR: vonpupp
+#+DATE: 2026-09-08
+
+Verified procedure for flashing QMK/Miryoku firmware to the X.Tips V4s.
+Hardware details: see [[file:device.org][device.org]].
+
+* Tools
+
+#+begin_src sh
+sudo pacman -S dfu-util        # Arch; elsewhere: apt/brew install dfu-util
+#+end_src
+
+Get the firmware =.bin= onto the machine the keyboard is plugged into (the
+build artifact from the fork's Actions run):
+
+#+begin_src sh
+rsync -av --inplace oci2:repos/miryoku/tmp/firmware-final/xtips_v4s_103c_manna-harbour_miryoku.bin .
+sha256sum xtips_v4s_103c_manna-harbour_miryoku.bin
+# expect: e6f9843cfa12d7c7aad26ac8e58cc3cfd64f016d770d352784b95c05ae2c7667
+#+end_src
+
+* Flash one half at a time
+
+The two halves are independent computers; the SAME binary goes on both.
+Keep them disconnected from each other (no TRRS) while flashing.
+
+1. *Enter the bootloader* (bootmagic): unplug the half, hold =E= (left) or
+   =I= (right), plug in USB, release. Verify:
+
+   #+begin_src sh
+   lsusb | grep 1eaf    # → 1eaf:0003 Leaflabs Maple DFU interface
+   #+end_src
+
+2. *Flash* (alt 2 = flash @ =0x8002000= — see gotchas below):
+
+   #+begin_src sh
+   sudo dfu-util -a 2 -d 1eaf:0003 -D ./xtips_v4s_103c_manna-harbour_miryoku.bin
+   #+end_src
+
+   Expected end state: =Download done=, =dfuMANIFEST-WAIT-RESET=,
+   =Resetting USB to switch back to runtime mode=, =Done!=. It reboots by
+   itself.
+
+3. Repeat 1-2 for the other half (bootmagic = =I=).
+
+4. *Reassemble*: TRRS between halves, USB from the left half. Done.
+
+* Gotchas (all hit and verified the hard way)
+
+- *alt 0 STALLs*: =dfu-util -a 0 ...= fails with =Error during download
+  (LIBUSB_ERROR_PIPE)= — that slot is "Upload to RAM not supported".
+- *alt 1 is the wrong flash region* (=0x8005000=); ours links at
+  =0x8002000= → use *alt 2*.
+- *No =-s= flag*: =-s 0x8002000:leave= aborts with "DfuSe option used on
+  non-DfuSe device" — this bootloader is plain DFU 1.1; the address is
+  baked into the alt slot.
+- *No =RPI-RP2= drive will ever appear* — that's RP2040-only. STM32 DFU has
+  no mass-storage mode; =dfu-util= is the only way.
+- After a failed download the device may sit in =dfuERROR=; dfu-util clears
+  it ("Clearing status"), or just re-enter the bootloader via bootmagic.
+- If =sudo dfu-util= still hits permission errors (some setups), a udev rule
+  for =1eaf:0003= (MODE 0660, TAG+=uaccess — same pattern as the Vial rule)
+  fixes it; plain =sudo= worked here.
+
+* Entering the bootloader later (without disassembly)
+
+- From the running Miryoku firmware: hold any thumb key and *double-tap the
+  top-row pinkie key on the same hand* (stock Miryoku Additional Features
+  =QK_BOOT=). That half re-enumerates as =1eaf:0003=.
+- Bootmagic =E=/=I= while plugging always works, even with broken firmware.
+
+* Building new firmware
+
+- One command on the fork (branch =miryoku-LAYOUT_split_3x6_3_ex2=): run the
+  =Build Inputs= workflow with =keyboard=xtips/v4s/103c= (no =merge=
+  option!) — or the one-click =Build Example crkbd rev4_0 standard= workflow
+  once the branch is the fork default (rename/adjust its =keyboard= value to
+  =xtips/v4s/103c= first).
+- Artifact: the =.bin= inside the run's zip. /Never/ build this branch with
+  =merge=qmk/qmk_firmware/master= — current QMK master removes keycodes the
+  2024 userspace uses and purges third-party =users/= (see branch notes in
+  the fork root).
