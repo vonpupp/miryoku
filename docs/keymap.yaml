@@ -9,56 +9,56 @@ layout: {qmk_keyboard: crkbd/rev4, layout_name: LAYOUT_split_3x6_3_ex2}
 layers:
   Base:
   - [{type: ghost}, B, L, D, C, V, {type: ghost}, {t: QWERTY, bl: DF}, J, Y, O, U, "'", {type: ghost}]
-  - [{type: ghost}, {t: N, h: Gui}, {t: R, h: Alt}, {t: T, h: Ctl}, {t: S, h: Sft}, G, {type: ghost}, {t: Colemak, bl: DF, type: held},
+  - [{type: ghost}, {t: N, h: Gui}, {t: R, h: Alt}, {t: T, h: Ctl}, {t: S, h: Sft}, G, {type: ghost}, {t: Gallium, bl: DF, type: held},
      P, {t: H, h: Sft}, {t: A, h: Ctl}, {t: E, h: Alt}, {t: I, h: Gui}, {type: ghost}]
   - [{type: ghost}, {t: X, h: Butn}, {t: Q, h: AltGr}, M, W, Z, K, F, ",", {t: ., h: AltGr}, {t: /, h: Butn}, {type: ghost}]
   - [{t: Esc, h: Media}, {t: Space, h: Nav}, {t: Tab, h: Mouse}, {t: Enter, h: Sym}, {t: Bspc, h: Num}, {t: Del, h: Fun}]
   Extra:
   - [{type: ghost}, Q, W, E, R, T, {type: ghost}, {t: QWERTY, bl: DF, type: held}, Y, U, I, O, P, {type: ghost}]
-  - [{type: ghost}, {t: A, h: Gui}, {t: S, h: Alt}, {t: D, h: Ctl}, {t: F, h: Sft}, G, {type: ghost}, {t: Colemak, bl: DF},
+  - [{type: ghost}, {t: A, h: Gui}, {t: S, h: Alt}, {t: D, h: Ctl}, {t: F, h: Sft}, G, {type: ghost}, {t: Gallium, bl: DF},
      H, {t: J, h: Sft}, {t: K, h: Ctl}, {t: L, h: Alt}, {t: ;, h: Gui}, {type: ghost}]
   - [{type: ghost}, {t: Z, h: Butn}, {t: X, h: AltGr}, C, V, B, N, M, ",", {t: ., h: AltGr}, {t: /, h: Butn}, {type: ghost}]
   - [{t: Esc, h: Media}, {t: Space, h: Nav}, {t: Tab, h: Mouse}, {t: Enter, h: Sym}, {t: Bspc, h: Num}, {t: Del, h: Fun}]
   Tap:
   - [{type: ghost}, B, L, D, C, V, {type: ghost}, {t: QWERTY, bl: DF}, J, Y, O, U, "'", {type: ghost}]
-  - [{type: ghost}, N, R, T, S, G, {type: ghost}, {t: Colemak, bl: DF}, P, H, A, E, I, {type: ghost}]
+  - [{type: ghost}, N, R, T, S, G, {type: ghost}, {t: Gallium, bl: DF}, P, H, A, E, I, {type: ghost}]
   - [{type: ghost}, X, Q, M, W, Z, K, F, ",", ., /, {type: ghost}]
   - [Esc, Space, Tab, Enter, Bspc, Del]
   Nav:
   - [{type: ghost}, {t: 2× Boot}, {t: 2× Tap}, {t: 2× Extra}, {t: 2× Base}, "", {type: ghost}, {t: QWERTY, bl: DF},
      Redo, Paste, Copy, Cut, Undo, {type: ghost}]
-  - [{type: ghost}, Gui, Alt, Ctl, Sft, "", {type: ghost}, {t: Colemak, bl: DF}, CapsWord, ←, ↓, ↑, →, {type: ghost}]
+  - [{type: ghost}, Gui, Alt, Ctl, Sft, "", {type: ghost}, {t: Gallium, bl: DF}, CapsWord, ←, ↓, ↑, →, {type: ghost}]
   - [{type: ghost}, "", AltGr, {t: 2× Num}, {t: 2× Nav}, "", Ins, Home, PgDn, PgUp, End, {type: ghost}]
   - ["", {t: Space, h: Nav, type: held}, "", Enter, Bspc, Del]
   Mouse:
   - [{type: ghost}, {t: 2× Boot}, {t: 2× Tap}, {t: 2× Extra}, {t: 2× Base}, "", {type: ghost}, {t: QWERTY, bl: DF},
      Redo, Paste, Copy, Cut, Undo, {type: ghost}]
-  - [{type: ghost}, Gui, Alt, Ctl, Sft, "", {type: ghost}, {t: Colemak, bl: DF}, {type: ghost}, MS ←, MS ↓, MS ↑, MS →, {type: ghost}]
+  - [{type: ghost}, Gui, Alt, Ctl, Sft, "", {type: ghost}, {t: Gallium, bl: DF}, {type: ghost}, MS ←, MS ↓, MS ↑, MS →, {type: ghost}]
   - [{type: ghost}, "", AltGr, {t: 2× Sym}, {t: 2× Mouse}, "", {type: ghost}, WH ←, WH ↓, WH ↑, WH →, {type: ghost}]
   - ["", "", {t: Tab, h: Mouse, type: held}, BTN2, BTN1, BTN3]
   Media:
   - [{type: ghost}, {t: 2× Boot}, {t: 2× Tap}, {t: 2× Extra}, {t: 2× Base}, "", {type: ghost}, {t: QWERTY, bl: DF},
      RGB Tog, RGB Mode, RGB Hue, RGB Sat, RGB Val, {type: ghost}]
-  - [{type: ghost}, Gui, Alt, Ctl, Sft, "", {type: ghost}, {t: Colemak, bl: DF}, {type: ghost}, Prev, Vol −, Vol +, Next, {type: ghost}]
+  - [{type: ghost}, Gui, Alt, Ctl, Sft, "", {type: ghost}, {t: Gallium, bl: DF}, {type: ghost}, Prev, Vol −, Vol +, Next, {type: ghost}]
   - [{type: ghost}, "", AltGr, {t: 2× Fun}, {t: 2× Media}, "", Out Auto, {type: ghost}, {type: ghost}, {type: ghost}, {type: ghost}, {type: ghost}]
   - [{t: Esc, h: Media, type: held}, "", "", Stop, Play, Mute]
   Num:
   - [{type: ghost}, "[", "7", "8", "9", "]", {type: ghost}, {t: QWERTY, bl: DF}, "", {t: 2× Base}, {t: 2× Extra}, {t: 2× Tap}, {t: 2× Boot}, {type: ghost}]
-  - [{type: ghost}, ";", "4", "5", "6", "=", {type: ghost}, {t: Colemak, bl: DF}, Sft, Ctl, Alt, Gui, "", {type: ghost}]
+  - [{type: ghost}, ";", "4", "5", "6", "=", {type: ghost}, {t: Gallium, bl: DF}, Sft, Ctl, Alt, Gui, "", {type: ghost}]
   - [{type: ghost}, "`", "1", "2", "3", "\\", "", {t: 2× Num}, {t: 2× Nav}, AltGr, "", {type: ghost}]
   - [".", "0", "-", "", {t: Bspc, h: Num, type: held}, ""]
   Sym:
   - [{type: ghost}, "{", "&", "*", "(", "}", {type: ghost}, {t: QWERTY, bl: DF}, "", {t: 2× Base}, {t: 2× Extra}, {t: 2× Tap}, {t: 2× Boot}, {type: ghost}]
-  - [{type: ghost}, ":", "$", "%", "^", "+", {type: ghost}, {t: Colemak, bl: DF}, Sft, Ctl, Alt, Gui, "", {type: ghost}]
+  - [{type: ghost}, ":", "$", "%", "^", "+", {type: ghost}, {t: Gallium, bl: DF}, Sft, Ctl, Alt, Gui, "", {type: ghost}]
   - [{type: ghost}, "~", "!", "@", "#", "|", "", {t: 2× Sym}, {t: 2× Mouse}, AltGr, "", {type: ghost}]
   - ["(", ")", "_", {t: Enter, h: Sym, type: held}, "", ""]
   Fun:
   - [{type: ghost}, F12, F7, F8, F9, PScr, {type: ghost}, {t: QWERTY, bl: DF}, "", {t: 2× Base}, {t: 2× Extra}, {t: 2× Tap}, {t: 2× Boot}, {type: ghost}]
-  - [{type: ghost}, F11, F4, F5, F6, SLck, {type: ghost}, {t: Colemak, bl: DF}, Sft, Ctl, Alt, Gui, "", {type: ghost}]
+  - [{type: ghost}, F11, F4, F5, F6, SLck, {type: ghost}, {t: Gallium, bl: DF}, Sft, Ctl, Alt, Gui, "", {type: ghost}]
   - [{type: ghost}, F10, F1, F2, F3, Pause, "", {t: 2× Fun}, {t: 2× Media}, AltGr, "", {type: ghost}]
   - [App, Space, Tab, "", "", {t: Del, h: Fun, type: held}]
   Button:
   - [{type: ghost}, Undo, Cut, Copy, Paste, Redo, {type: ghost}, {t: QWERTY, bl: DF}, Redo, Paste, Copy, Cut, Undo, {type: ghost}]
-  - [{type: ghost}, Gui, Alt, Ctl, Sft, {type: ghost}, {type: ghost}, {t: Colemak, bl: DF}, {type: ghost}, Sft, Ctl, Alt, Gui, {type: ghost}]
+  - [{type: ghost}, Gui, Alt, Ctl, Sft, {type: ghost}, {type: ghost}, {t: Gallium, bl: DF}, {type: ghost}, Sft, Ctl, Alt, Gui, {type: ghost}]
   - [{type: ghost}, Undo, Cut, Copy, Paste, Redo, Redo, Paste, Copy, Cut, Undo, {type: ghost}]
   - [BTN3, BTN1, BTN2, BTN2, BTN1, BTN3]

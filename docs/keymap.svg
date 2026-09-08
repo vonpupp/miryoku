@@ -213,7 +213,7 @@ path.combo {
 </g>
 <g transform="translate(476, 126)" class="key held keypos-21">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
-<text x="0" y="0" class="key held tap">Colemak</text>
+<text x="0" y="0" class="key held tap">Gallium</text>
 <text x="-24" y="24" class="key held bl">DF</text>
 </g>
 <g transform="translate(532, 98)" class="key keypos-22">
@@ -420,7 +420,7 @@ path.combo {
 </g>
 <g transform="translate(476, 126)" class="key keypos-21">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">Colemak</text>
+<text x="0" y="0" class="key tap">Gallium</text>
 <text x="-24" y="24" class="key bl">DF</text>
 </g>
 <g transform="translate(532, 98)" class="key keypos-22">
@@ -623,7 +623,7 @@ path.combo {
 </g>
 <g transform="translate(476, 126)" class="key keypos-21">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">Colemak</text>
+<text x="0" y="0" class="key tap">Gallium</text>
 <text x="-24" y="24" class="key bl">DF</text>
 </g>
 <g transform="translate(532, 98)" class="key keypos-22">
@@ -812,7 +812,7 @@ path.combo {
 </g>
 <g transform="translate(476, 126)" class="key keypos-21">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">Colemak</text>
+<text x="0" y="0" class="key tap">Gallium</text>
 <text x="-24" y="24" class="key bl">DF</text>
 </g>
 <g transform="translate(532, 98)" class="key keypos-22">
@@ -1003,7 +1003,7 @@ path.combo {
 </g>
 <g transform="translate(476, 126)" class="key keypos-21">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">Colemak</text>
+<text x="0" y="0" class="key tap">Gallium</text>
 <text x="-24" y="24" class="key bl">DF</text>
 </g>
 <g transform="translate(532, 98)" class="key ghost keypos-22">
@@ -1218,7 +1218,7 @@ path.combo {
 </g>
 <g transform="translate(476, 126)" class="key keypos-21">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">Colemak</text>
+<text x="0" y="0" class="key tap">Gallium</text>
 <text x="-24" y="24" class="key bl">DF</text>
 </g>
 <g transform="translate(532, 98)" class="key ghost keypos-22">
@@ -1411,7 +1411,7 @@ path.combo {
 </g>
 <g transform="translate(476, 126)" class="key keypos-21">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">Colemak</text>
+<text x="0" y="0" class="key tap">Gallium</text>
 <text x="-24" y="24" class="key bl">DF</text>
 </g>
 <g transform="translate(532, 98)" class="key keypos-22">
@@ -1602,7 +1602,7 @@ path.combo {
 </g>
 <g transform="translate(476, 126)" class="key keypos-21">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">Colemak</text>
+<text x="0" y="0" class="key tap">Gallium</text>
 <text x="-24" y="24" class="key bl">DF</text>
 </g>
 <g transform="translate(532, 98)" class="key keypos-22">
@@ -1793,7 +1793,7 @@ path.combo {
 </g>
 <g transform="translate(476, 126)" class="key keypos-21">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">Colemak</text>
+<text x="0" y="0" class="key tap">Gallium</text>
 <text x="-24" y="24" class="key bl">DF</text>
 </g>
 <g transform="translate(532, 98)" class="key keypos-22">
@@ -1976,7 +1976,7 @@ path.combo {
 </g>
 <g transform="translate(476, 126)" class="key keypos-21">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">Colemak</text>
+<text x="0" y="0" class="key tap">Gallium</text>
 <text x="-24" y="24" class="key bl">DF</text>
 </g>
 <g transform="translate(532, 98)" class="key ghost keypos-22">
