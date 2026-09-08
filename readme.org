@@ -38,10 +38,11 @@ Everything lives on the branch =miryoku-LAYOUT_split_3x6_3_ex2= in each repo
 KMonad and Oryx ports are intentionally not part of this mirror.
 
 
-** Roadmap (direction, not started)
+** Roadmap
 
-- Alternative alpha layout support in babel: Gallium, Sturdy, Magic Sturdy,
-  Canary ([[https://getreuer.info/posts/keyboards/alt-layouts/index.html][Pascal Getreuer's alternative layouts list]]).
+- Alternative alpha layout support in babel: Gallium (done 2026-09-08),
+  Sturdy, Magic Sturdy, Canary
+  ([[https://getreuer.info/posts/keyboards/alt-layouts/index.html][Pascal Getreuer's alternative layouts list]]).
 - Layer tweaks from the pre-Miryoku Vial config (home-row tap-dance mods
   equivalents, mouse-layer row order) — see the spec's future-phases notes.
 
