@@ -43,3 +43,7 @@ physical keyboard they are the right inner *home* (QWERTY) and *bottom*
   (Additional Features: bootloader, base-layer switching, layer locks)
 - =DF QWERTY= / =DF Colemak= = instant default-layer switch on the extra keys
 - dashed keys = physically present but unused in this mapping
+- light-red/orange shaded key = the key that activates this layer (hold it
+  from the Base layer; on Base/Extra it is the DF switch key). =Tap= has no
+  single activator (double-tap =2× Tap= on any hold layer); =Button= is
+  activated by holding =Z= or =/== on Base.
