@@ -2,7 +2,7 @@
 
 Date: 2026-09-07
 Branch (all repos): `miryoku-LAYOUT_split_3x6_3_ex2`
-Status: approved design, pending implementation plan
+Status: implemented and hardware-accepted (2026-09-08) — see §10 for the hardware pivot addendum
 
 ## 1. Context
 
@@ -150,3 +150,27 @@ defaults to QWERTY); the two left inner extras stay inert.
   fork (babel's own tangle workflow or local emacs); candidate ideas from the `.vil`:
   home-row mods, QWERTY/Colemak dual base layers on the extra keys.
 - Phase 3 (optional): VIA support; other firmware targets.
+
+## 10. Addendum — hardware pivot (implemented reality)
+
+During the deferred hardware session (design §7 pre-flight), the board turned
+out NOT to be an RP2040 Corne v4: it is an **X.Tips V4s** (umux.com, USB
+`5262:4e4b`, Geehy APM32F103C8T6 = STM32F103C8 clone, `stm32duino` Maple DFU
+bootloader). The vendor publishes the keyboard definition at
+`X-Tips/QMK-Keyboard` (`v4s/103c`). Phase 1 was completed against that target:
+
+- `keyboards/xtips/v4s/103c/` vendored into the fork (vendor files
+  byte-identical; layouts replaced with a board-true 46-key
+  `LAYOUT_split_3x6_3_ex2` — the inner extra keys sit on the home and bottom
+  rows, unlike crkbd's top+home) plus `community_layouts` registration.
+- The community shim was retargeted to that argument order: right home inner
+  extra = `DF(U_EXTRA)` (QWERTY), right bottom inner extra = `DF(U_BASE)`
+  (Colemak) — the user's original Vial placement; left extras and outer
+  columns inert.
+- All crkbd-era work (rev4_0 registrations, default layout definition, RP2040
+  artifacts in `tmp/firmware-crkbd-rp2040-reference/`) is retained on the
+  branch as reference only.
+- Firmware: `xtips_v4s_103c_manna-harbour_miryoku.bin` (33,624 B, 51% of the
+  64 KB flash), flashed to both halves via `dfu-util -a 2 -d 1eaf:0003`
+  (flash @ 0x8002000); bootloader entry via bootmagic (hold `E`/`I` while
+  plugging). Accepted by use.
