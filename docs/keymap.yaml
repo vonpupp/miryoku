@@ -62,3 +62,6 @@ layers:
   - [{type: ghost}, Gui, Alt, Ctl, Sft, {type: ghost}, {type: ghost}, {t: Gallium, bl: DF}, {type: ghost}, Sft, Ctl, Alt, Gui, {type: ghost}]
   - [{type: ghost}, Undo, Cut, Copy, Paste, Redo, Redo, Paste, Copy, Cut, Undo, {type: ghost}]
   - [BTN3, BTN1, BTN2, BTN2, BTN1, BTN3]
+draw_config:
+  svg_extra_style: |-
+    rect.key.held, rect.combo.held { fill: #ffb3ba; stroke: #d96a75; stroke-width: 1.5; }

@@ -123,7 +123,8 @@ path.combo {
     visibility: hidden;
 }
 /* End Tabler Icons Cleanup */
-</style>
+
+rect.key.held, rect.combo.held { fill: #ffb3ba; stroke: #d96a75; stroke-width: 1.5; }</style>
 <g transform="translate(30, 0)" class="layer-Base">
 <text x="0" y="28" class="label" id="Base">Base:</text>
 <g transform="translate(0, 56)">
