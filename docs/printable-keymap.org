@@ -47,11 +47,3 @@ rsvg-convert -w 1600 keymap.svg -o keymap.png
   (stock Miryoku Additional Features)
 - =DF QWERTY= / =DF Colemak= = instant default-layer switch on the extra keys
 - dashed keys = physically present but unused in this mapping
-
-* Note on drawing geometry
-
-The drawing uses corne-style display coordinates (staggered outer columns,
-curved thumb clusters) patched into =xtips-v4s-103c-layout.json= so the
-output matches the official Miryoku layer images. The build-fidelity
-coordinates (vendor's flat grid) live only in the fork's
-=keyboards/xtips/v4s/103c/keyboard.json= — the copy here is a drawing aid.
