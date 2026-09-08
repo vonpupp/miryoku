@@ -72,11 +72,11 @@ Keep them disconnected from each other (no TRRS) while flashing.
 
 * Building new firmware
 
-- One command on the fork (branch =miryoku-LAYOUT_split_3x6_3_ex2=): run the
-  =Build Inputs= workflow with =keyboard=xtips/v4s/103c= (no =merge=
-  option!) — or the one-click =Build Example crkbd rev4_0 standard= workflow
-  once the branch is the fork default (rename/adjust its =keyboard= value to
-  =xtips/v4s/103c= first).
+- The fork's default branch is =miryoku-LAYOUT_split_3x6_3_ex2= — the
+  one-click =Build Example xtips v4s 103c= workflow is dispatchable straight
+  from the Actions tab (or =gh workflow run 'Build Example xtips v4s 103c'
+  --repo vonpupp/miryoku_qmk=). The generic =Build Inputs= workflow with
+  =keyboard=xtips/v4s/103c= works too. Never add a =merge= option.
 - Artifact: the =.bin= inside the run's zip. /Never/ build this branch with
   =merge=qmk/qmk_firmware/master= — current QMK master removes keycodes the
   2024 userspace uses and purges third-party =users/= (see branch notes in
