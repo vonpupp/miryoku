@@ -2,48 +2,44 @@
 #+AUTHOR: vonpupp
 #+DATE: 2026-09-08
 
-Current printable keymap of the X.Tips V4s running stock Miryoku with our
-=split_3x6_3_ex2= mapping. Files here:
+Printable keymap of the X.Tips V4s running stock Miryoku with our
+=split_3x6_3_ex2= mapping. Files:
 
-- =keymap.svg= / =keymap.png= — the generated, printable diagrams (10 layers)
-- =keymap.yaml= — the keymap-drawer source (regenerate the above from it)
-- =xtips-v4s-103c-layout.json= — copy of the vendored keyboard definition
-  (=LAYOUT_split_3x6_3_ex2=) that defines the physical geometry
-- =generate-keymap.py= — regenerates =keymap.yaml= straight from
-  =miryoku_babel='s tangled QMK layer data + our shim mapping (DF keys on the
-  right home/bottom inner extras; outer columns and left inner extras dashed)
+- =keymap.svg= / =keymap.png= — the printable diagrams (10 layers, one image)
+- =keymap.yaml= — the [[https://github.com/caksoylar/keymap-drawer][keymap-drawer]]
+  source; geometry comes straight from QMK via
+  =layout: {qmk_keyboard: crkbd/rev4, layout_name: LAYOUT_split_3x6_3_ex2}=
+  (the same setup as the well-known printable Corne v4.1 46-key maps)
 
-* Why a custom drawing (not the crkbd one)
-
-The printable Corne v4.1 46-key maps floating around (e.g. the Reddit guide
-for justinmklam's keymap) use =crkbd/rev4_0/standard= geometry, whose extra
-keys sit on the *top+home* inner rows. This board's extras are on the
-*home+bottom* rows — one row lower — so those drawings cannot even represent
-our Colemak-DF key. Hence the custom layout json above.
-
-* Regenerate after firmware/layer changes
+* Regenerate
 
 #+begin_src sh
-pip install keymap-drawer            # once (or pipx install keymap-drawer)
+pipx install keymap-drawer            # once
 cd docs/
-python generate-keymap.py            # babel layer data -> keymap.yaml
 keymap draw keymap.yaml -o keymap.svg
 rsvg-convert -w 1600 keymap.svg -o keymap.png
 #+end_src
 
+Or paste =keymap.yaml= into the web app at
+https://caksoylar.github.io/keymap-drawer and download the SVG.
+
 * Print
 
-- =keymap.png= / =keymap.svg= open and print directly from a browser
-  (SVG scales losslessly; PNG at width 1600 prints well on A4).
-- Web alternative: paste =keymap.yaml= into https://caksoylar.github.io/keymap-drawer
-  and upload =xtips-v4s-103c-layout.json= as the layout source, then download
-  the SVG from the app (the app cannot fetch our custom keyboard from QMK's
-  API — that only works for upstream keyboards like =crkbd=).
+Open =keymap.png= (or =keymap.svg=) in a browser and print — scales cleanly
+to A4.
+
+* Geometry note (one known approximation)
+
+The drawing uses crkbd/rev4's ex2 geometry, whose two inner extra keys per
+half sit on the *top+home* rows. This board's extras sit one row lower
+(*home+bottom*). The two DF keys are drawn on the crkbd extra slots; on the
+physical keyboard they are the right inner *home* (QWERTY) and *bottom*
+(Colemak) keys. Everything else matches 1:1.
 
 * Legend conventions
 
-- center = tap, bottom line = hold (e.g. =A= with =Gui= = =LGUI_T(KC_A)=)
-- =2× Boot= / =2× Base= … = double-tap while holding a thumb key
-  (stock Miryoku Additional Features)
+- center = tap, bottom = hold (=A= + =Gui= = =LGUI_T(KC_A)=)
+- =2× Boot= / =2× Base= / =2× Num= … = double-tap while holding a thumb key
+  (Additional Features: bootloader, base-layer switching, layer locks)
 - =DF QWERTY= / =DF Colemak= = instant default-layer switch on the extra keys
 - dashed keys = physically present but unused in this mapping
