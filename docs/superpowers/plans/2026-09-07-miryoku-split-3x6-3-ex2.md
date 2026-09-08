@@ -17,7 +17,7 @@
 - No edits to `miryoku_babel`, no edits to `.github/workflows/main.yml` or `build-inputs.yml`, no layer customizations, no options overrides (stock `default` alphas/nav/clipboard/layers).
 - The 4 extra keys map to `XXX` (`KC_NO`) — inert, by design (spec §2, §6).
 - Commits touching `.github/**` are prefixed `[miryoku-github]` (canonical prefix; the build's merge step reverts such commits before merging QMK master). **All other commits MUST NOT use that prefix** — they must survive the merge.
-- Local working set: this docs repo at `/home/av/repos/miryoku`, babel clone at `/home/av/repos/miryoku/miryoku_babel` (already done), QMK fork clone at `/home/av/repos/miryoku_qmk` (sibling).
+- Local working set: this docs repo at `~/repos/miryoku`, babel clone at `~/repos/miryoku/miryoku_babel` (already done), QMK fork clone at `~/repos/miryoku_qmk` (sibling).
 - Hardware acceptance gates: if the board never shows an `RPI-RP2` USB drive in BOOTSEL mode, STOP — that is spec §8 contingency C (custom keyboard def) and is out of this plan's scope.
 
 ---
@@ -52,7 +52,7 @@ Note gh status OK and RPI-RP2 observed on both halves in the session log / plan 
 ### Task 2: Fork `miryoku_qmk`, clone, create the branch
 
 **Files:**
-- Create: local clone at `/home/av/repos/miryoku_qmk` (from `vonpupp/miryoku_qmk`, branch `miryoku`, depth 1)
+- Create: local clone at `~/repos/miryoku_qmk` (from `vonpupp/miryoku_qmk`, branch `miryoku`, depth 1)
 - Create (on GitHub): branch `miryoku-LAYOUT_split_3x6_3_ex2` in `vonpupp/miryoku_qmk`
 
 **Interfaces:**
@@ -75,7 +75,7 @@ Expected: HTTP 204 (empty success). Fallback: web UI → fork → Actions tab �
 - [ ] **Step 3: Clone (shallow) and branch**
 
 ```bash
-cd /home/av/repos
+cd ~/repos
 git clone --depth 1 -b miryoku git@github.com:vonpupp/miryoku_qmk.git
 cd miryoku_qmk
 git checkout -b miryoku-LAYOUT_split_3x6_3_ex2
@@ -155,8 +155,8 @@ If keys on the secondary half don't register, reseat TRRS and reflash both halve
 ### Task 5: Shim — `layouts/community/split_3x6_3_ex2/manna-harbour_miryoku/`
 
 **Files:**
-- Create: `/home/av/repos/miryoku_qmk/layouts/community/split_3x6_3_ex2/manna-harbour_miryoku/config.h`
-- Create: `/home/av/repos/miryoku_qmk/layouts/community/split_3x6_3_ex2/manna-harbour_miryoku/keymap.c`
+- Create: `~/repos/miryoku_qmk/layouts/community/split_3x6_3_ex2/manna-harbour_miryoku/config.h`
+- Create: `~/repos/miryoku_qmk/layouts/community/split_3x6_3_ex2/manna-harbour_miryoku/keymap.c`
 
 **Interfaces:**
 - Consumes: `LAYOUT_split_3x6_3_ex2` macro declared by `crkbd/rev4_0/info.json` (46 args, order verified from the layout array: top 14 = left outer→inner then right inner→outer; home 14; bottom 12; thumbs 6 = `(x4,3.7)(x5,3.7)(x6,3.2)(x8,3.2)(x9,3.7)(x10,3.7)`).
@@ -202,7 +202,7 @@ Sanity check before committing: arg counts 14 + 14 + 12 + 6 = 46.
 - [ ] **Step 3: Commit and push** (NOT `[miryoku-github]` — must survive merges)
 
 ```bash
-cd /home/av/repos/miryoku_qmk
+cd ~/repos/miryoku_qmk
 git add layouts/community/split_3x6_3_ex2/
 git commit -m "Add split_3x6_3_ex2 subset mapping for manna-harbour_miryoku"
 git push
@@ -213,7 +213,7 @@ git push
 ### Task 6: Register the community layout
 
 **Files:**
-- Modify: `/home/av/repos/miryoku_qmk/keyboards/crkbd/rev4_0/info.json` — the `community_layouts` array.
+- Modify: `~/repos/miryoku_qmk/keyboards/crkbd/rev4_0/info.json` — the `community_layouts` array.
 
 **Interfaces:**
 - Consumes: shim directory (Task 5).
@@ -237,13 +237,13 @@ to:
 
 - [ ] **Step 2: Validate JSON**
 
-Run: `python3 -m json.tool /home/av/repos/miryoku_qmk/keyboards/crkbd/rev4_0/info.json > /dev/null && echo OK`
+Run: `python3 -m json.tool ~/repos/miryoku_qmk/keyboards/crkbd/rev4_0/info.json > /dev/null && echo OK`
 Expected: `OK`
 
 - [ ] **Step 3: Commit and push** (NOT `[miryoku-github]`)
 
 ```bash
-cd /home/av/repos/miryoku_qmk
+cd ~/repos/miryoku_qmk
 git add keyboards/crkbd/rev4_0/info.json
 git commit -m "Register split_3x6_3_ex2 as crkbd rev4_0 community layout"
 git push
@@ -254,7 +254,7 @@ git push
 ### Task 7: One-click build workflow + build
 
 **Files:**
-- Create: `/home/av/repos/miryoku_qmk/.github/workflows/build-example-crkbd-rev4-0-standard.yml`
+- Create: `~/repos/miryoku_qmk/.github/workflows/build-example-crkbd-rev4-0-standard.yml`
 
 **Interfaces:**
 - Consumes: manna-harbour's reusable workflow `./.github/workflows/main.yml` (inputs `keyboard`, `merge`; unchanged).
@@ -281,7 +281,7 @@ jobs:
 - [ ] **Step 2: Commit and push** (IS `[miryoku-github]` — GitHub-specific, canonical per upstream docs)
 
 ```bash
-cd /home/av/repos/miryoku_qmk
+cd ~/repos/miryoku_qmk
 git add .github/workflows/build-example-crkbd-rev4-0-standard.yml
 git commit -m "[miryoku-github] Add build example for crkbd/rev4_0/standard"
 git push
@@ -328,10 +328,10 @@ Expected: `crkbd_rev4_0_standard_manna-harbour_miryoku.uf2` present.
 
 - [ ] **Step 3: Real-work session** — the user types on it for at least one working session before phase 2 begins.
 
-- [ ] **Step 4: Close out** — in `/home/av/repos/miryoku`, update the spec's `Status:` line to `implemented`, tick this plan's boxes, and commit:
+- [ ] **Step 4: Close out** — in `~/repos/miryoku`, update the spec's `Status:` line to `implemented`, tick this plan's boxes, and commit:
 
 ```bash
-cd /home/av/repos/miryoku
+cd ~/repos/miryoku
 git add docs/superpowers/
 git commit -m "Mark split_3x6_3_ex2 phase 1 implemented"
 ```

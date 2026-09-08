@@ -15,7 +15,7 @@ Get the firmware =.bin= onto the machine the keyboard is plugged into (the
 build artifact from the fork's Actions run):
 
 #+begin_src sh
-rsync -av --inplace oci2:repos/miryoku/tmp/firmware-final/xtips_v4s_103c_vonpupp_miryoku.bin .
+rsync -av --inplace ~/repos/miryoku/tmp/firmware-final/xtips_v4s_103c_vonpupp_miryoku.bin .
 sha256sum xtips_v4s_103c_vonpupp_miryoku.bin
 # expect: 6275d4d9486dfc377167cb962a9d30af39653b54371d830acb0e955eda30208c
 #+end_src
