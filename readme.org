@@ -6,20 +6,44 @@
 [[https://github.com/manna-harbour/miryoku/][Miryoku]] is an ergonomic, minimal, orthogonal, and universal keyboard layout.
 
 
+** About this fork
+
+Personal mirror of the Miryoku project, centred on porting it to my keyboard:
+the 46-key X.Tips V4s split (STM32F103, see [[file:docs/device.org][docs/device.org]]).
+Everything lives on the branch =miryoku-LAYOUT_split_3x6_3_ex2= in each repo
+(same name everywhere).
+
+- Phase 1 complete and hardware-accepted (2026-09-08): stock Miryoku on the
+  V4s with =DF= base-layer switching (QWERTY/Colemak) on the right inner
+  extra keys. Design and history: [[file:docs/superpowers/specs/2026-09-07-miryoku-split-3x6-3-ex2-design.md][spec]],
+  [[file:docs/superpowers/plans/2026-09-07-miryoku-split-3x6-3-ex2.md][plan]].
+- Device docs: [[file:docs/device.org][device]] · [[file:docs/flashing.org][flashing]] ·
+  [[file:docs/printable-keymap.org][printable keymap]]
+
+
 ** Documentation
 
-# - [[docs/user/][Miryoku User Guide]]
 - [[docs/reference/][Miryoku Reference Manual]]
 
 
 ** Implementations
 
-- [[https://github.com/manna-harbour/miryoku_qmk/blob/miryoku/users/manna-harbour_miryoku/][Miryoku QMK]]
-- [[https://github.com/manna-harbour/miryoku_zmk][Miryoku ZMK]]
-- [[https://github.com/manna-harbour/miryoku_kmonad][Miryoku KMonad]]
-- [[https://github.com/manna-harbour/miryoku_kmk][Miryoku KMK]]
-- [[https://github.com/manna-harbour/miryoku_babel][Miryoku Babel]]
-- [[data/oryx][Miryoku Oryx]]
+| Repo | Status |
+|--------------------+-----------------------------------------------------------------------------------------------------|
+| [[https://github.com/vonpupp/miryoku_qmk/tree/miryoku-LAYOUT_split_3x6_3_ex2][Miryoku QMK (vonpupp)]] | *primary* — my firmware fork: vendored =xtips/v4s/103c= keyboard, 46-key =split_3x6_3_ex2= subset mapping, GitHub Actions builds |
+| [[https://github.com/vonpupp/miryoku_babel][Miryoku Babel (vonpupp)]] | *layer source of truth* — org tables; future layer/alpha work happens here |
+| [[https://github.com/manna-harbour/miryoku_zmk][Miryoku ZMK]] | parked for later (not forked yet) |
+| [[https://github.com/manna-harbour/miryoku_kmk][Miryoku KMK]] | parked for later (not forked yet) |
+
+KMonad and Oryx ports are intentionally not part of this mirror.
+
+
+** Roadmap (direction, not started)
+
+- Alternative alpha layout support in babel: Gallium, Sturdy, Magic Sturdy,
+  Canary ([[https://getreuer.info/posts/keyboards/alt-layouts/index.html][Pascal Getreuer's alternative layouts list]]).
+- Layer tweaks from the pre-Miryoku Vial config (home-row tap-dance mods
+  equivalents, mouse-layer row order) — see the spec's future-phases notes.
 
 
 ** Discussions and Support
@@ -27,6 +51,6 @@
 - [[https://github.com/manna-harbour/miryoku/discussions/8][Miryoku Discussions and Support]]
 
 
-** 
+**
 
 [[https://github.com/manna-harbour][data/logos/manna-harbour-boa-32.png]]
